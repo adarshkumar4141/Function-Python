@@ -145,19 +145,54 @@
 #     print(x)
 # test()
 
+# x=10 
+# def test():
+#     global x
+#     x=50
+# test()
+# print(x)
+
+# x=100
+# def test():
+#     x=200
+# test()
+# print(x)
+
+# THE LEGB RULE:-
+
+# x="global"
+# def outer():
+#     x="enclosing"
+
+#     def inner():
+#         x="local"
+#         print(x)
+#     inner()
+# outer()
+
+# DOCSTRING:-
+# A docstring (documentation string) is a special string written inside a function to describe what the function does, its parameters, and what it returns.
+        
+# def add(a,b):
+#     """ Return the sum of two numbers"""
+#     return a+b
+
+# print(add.__doc__) -This is used to print output of a docstring.
 
 
+#  DOCSTRING IN FUNCTION:-
+# A docstring is placed immediately inside a function, usually using triple quotes:
 
+# def add(a,b):
+#     """This function adds two numbers."""
+#     return a + b
 
+# print(add.__doc__)
 
-
-
+# FOR SUBTRACTION:-
 # import operator
 # a=operator.sub(10,4)
 # print(a)
-
-
-
 
 
 

@@ -80,7 +80,11 @@
 #     print("Course:",course)
 # student("ADARSH",18,"BTECH")
 
-# KEYWORD ARGUMENT DEFINITION :-A keyword argument passes a value by explicitly specifying the parameter name,so here order no matters.
+
+# POSTIONAL ARGUMENT:-
+# The first argument goes to the first parameter, the second argument goes to the second parameter, and so on.
+
+# KEYWORD ARGUMENT:-A keyword argument passes a value by explicitly specifying the parameter name,so here order no matters.
 
 # *ARGS:-
 # *Args allows a function to accept any number of positional arguments.
@@ -99,7 +103,7 @@
 
 # show(1,2)
 
-# def show(*args):
+# # def show(*args):
 #     print(args[1])
 #     print(args[2])
 # show(100,200,300)
@@ -123,9 +127,29 @@
 #     print(k["name"])
 # show(name="Aman",age=20)
 
+# COMBINATION OF BOTH ARGS AND KWARGS:-
+
+# def function(*args,**kwargs):
+#     print(args)
+#     print(kwargs)
+# function(10,20,30,40,name="adarsh",age=20,school="Udayan")
+
+# def show(*bmw,**audi):
+#     print(bmw,audi)
+# show("Fortuner","scorpio","Thar",name="G-wagon",type="Luxury",Version="Electric",Model="2026")
+
+
 # VARIABLE IN FUNCTION:-
-# [1] Local Variable:-
+# [1] Local Variable:- means variable only create inside the function.
 # A local variable is created inside a function or block and can usually be used only there.
+
+# def greet(name):
+#      print("Welcome",name)
+# greet("Mumbai Indians")
+
+# def test(name):
+#  print("x=10",name)
+# test("Math")
 
 # def greet():
 #     print("welcome")
@@ -158,8 +182,70 @@
 # test()
 # print(x)
 
-# THE LEGB RULE:-
+# CHANGING A GLOBAL VARIABLE INSIDE A FUNCTION:-
+# To modify (not just read) a global variable from inside a function, you must declare it with global.
+# x=10
+# def change():
+#         global x -here we use global keyword to update.
+#         x=50
+# change()
+# print(x)
 
+# count=20
+# def update():
+#     global count
+#     count=30
+# update()
+# print(count)
+
+# THE LEGB RULE:-The LEGB rule tells us the order in which Python searches for a variable or name.
+# LEGB = Local → Enclosing → Global → Built-in
+# EXAMPLE OF LEGB RULE:-
+
+# def outer():
+#     x="enclosing"
+#     def inner():
+#         x=20 - Here 20 is output because python follow legb rule first local then afterwards.
+#         print(x)
+#     inner()
+# outer()
+
+
+# x=20
+# def outer():
+#     name="Adarsh"
+#     def inner():
+#         print(name) - here inner() can access name of outer()as a enclosing function.
+#     inner()
+# outer()
+
+
+# city="Japla"
+# def outer():
+
+#     def inner():
+#         print(city)-here global variable is print as output japla.
+#     inner()   
+# outer() 
+
+
+# def show():
+    
+#     print(len("Rajputana")) - this is example of built-in function .
+# show()
+
+# x=20
+# def outer():
+#     name="Don"
+#     def inner():
+#         print(name)
+#         print(len("Quad AI"))
+#     inner()
+# outer()
+
+# ENCLOSING SCOPE:-
+# Enclosing scope is the scope of an outer function when you have a function defined inside another function.
+# In simple words,Enclosing scope = the scope of the outer function that surrounds the inner function.
 # x="global"
 # def outer():
 #     x="enclosing"
@@ -169,6 +255,23 @@
 #         print(x)
 #     inner()
 # outer()
+
+# def outer():
+#     message="Hello"
+#     def inner():
+#         print(message)
+#     inner()
+# outer()
+
+
+# BUILT-IN FINCTION:-
+# Built-in functions are functions that are already provided by Python, so we can use them without defining them ourselves.
+# x="ADARSH CHAUHAN"
+# print(len(x))
+
+# name="Japla"
+# print(len(name))
+
 
 # DOCSTRING:-
 # A docstring (documentation string) is a special string written inside a function to describe what the function does, its parameters, and what it returns.
@@ -181,18 +284,67 @@
 
 
 #  DOCSTRING IN FUNCTION:-
+# A docstring (documentation string) is a string written inside a function to describe what the function does.
+# It is mainly used to make your code easy to understand and document.
 # A docstring is placed immediately inside a function, usually using triple quotes:
 
 # def add(a,b):
 #     """This function adds two numbers."""
 #     return a + b
 
-# print(add.__doc__)
+# print(add.__doc__) -Python provides the __doc__ attribute to see a docstring in an output.
 
-# FOR SUBTRACTION:-
-# import operator
-# a=operator.sub(10,4)
+# def greet():
+#     """ This fuction has greeting message""" -this is docstring.It tells another programmer what the greet() function does.
+
+#     print("Hello Adarsh")
+# greet()
+
+# def show(a,b):
+#     """ This function add two numbers"""
+#     return a+b
+# result=show(10,20)
+# # print(result)
+
+# def hello():
+#     """ Welcome to Indian Railways"""
+# print(hello.__doc__)
+
+# FUNCTION ARE FIRST CLASS OBJECT IN PYTHON:-
+# Functions are first-class objects in Python because
+# they can be assigned to variables, passed as arguments, returned from functions, and stored in data structures just like other objects.
+
+# 1.Assign a Function to a Variable:-
+# def greet():
+#    print("Hello")
+
+# message=greet
+# message()
+
+# 2.Pass a Function as an Argument:-
+# def greet():
+#    print("Hello")
+# def execute(func):
+#       func()
+# execute(greet)
+
+# 3.Return a Function from Another Function:-
+# def outer():
+#     def inner():
+#         print("Hello from inner function")
+
+#     return inner
+
+# my_function = outer()
+
+# my_function()
+
+
+# SOME ANOTHER TOPIC:-
+# import math
+# a=math.sqrt(16)
 # print(a)
 
-
-
+#import operator
+# a=operator.sub(10,4)
+# print(a)
